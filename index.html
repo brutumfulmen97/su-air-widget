@@ -45,6 +45,10 @@
             padding: 1rem;
             border-radius: 1rem 1rem 0 0;
             position: relative;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
         }
 
         .location-info h3 {
@@ -117,14 +121,17 @@
 
         .sensor {
             font-size: 14px;
-            margin-top: 4px;
             line-height: 16px;
+            max-width: calc(100% - 70px);
+            margin: 4px auto 0 auto;
         }
 
         .part-city {
             line-height: 24px;
             font-size: 18px;
             font-weight: 500;
+            max-width: calc(100% - 70px);
+            margin: 0 auto;
         }
 
         .value {
@@ -139,6 +146,7 @@
             padding: 8px;
             border-radius: 4px;
             font-weight: 500;
+            min-width: 39px;
         }
 
         .value-pm25 {
@@ -188,6 +196,10 @@
         .swiper-button-disabled:hover {
             color: #858686;
         }
+
+        .swiper-container {
+            background-color: #fff;
+        }
     </style>
     <body>
         <main>
@@ -195,10 +207,14 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="location-info">
-                            <h2 class="part-city">Zorka</h2>
-                            <p class="sensor">Zapadni Vinogradi Kelebija</p>
-                            <h3>Kvalitet vazduha je</h3>
-                            <p class="location-info-status">PRIHVATLJIV</p>
+                            <div class="location-info-top">
+                                <h2 class="part-city">Zorka</h2>
+                                <p class="sensor">Zapadni Vinogradi Kelebija</p>
+                            </div>
+                            <div class="location-info-bottom">
+                                <h3>Kvalitet vazduha je</h3>
+                                <p class="location-info-status">PRIHVATLJIV</p>
+                            </div>
                             <div class="swiper-prev">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </div>
@@ -210,7 +226,44 @@
                             <p>Trenutno zagađenje (µg/m³):</p>
                             <div class="air-quality-values">
                                 <div class="value">
-                                    <span class="value-pm25">12</span
+                                    <span class="value-pm25">124</span
+                                    ><span>PM 2.5</span>
+                                </div>
+                                <div class="value">
+                                    <span class="value-pm1">43</span
+                                    ><span>PM 1</span>
+                                </div>
+                                <div class="value">
+                                    <span class="value-pm10">81</span
+                                    ><span>PM 10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="location-info">
+                            <div class="location-info-top">
+                                <h2 class="part-city">
+                                    Zapadni Vinogradi Kelebija
+                                </h2>
+                                <p class="sensor">Zapadni Vinogradi Kelebija</p>
+                            </div>
+                            <div class="location-info-bottom">
+                                <h3>Kvalitet vazduha je</h3>
+                                <p class="location-info-status">PRIHVATLJIV</p>
+                            </div>
+                            <div class="swiper-prev">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </div>
+                            <div class="swiper-next">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <div class="air-quality-info">
+                            <p>Trenutno zagađenje (µg/m³):</p>
+                            <div class="air-quality-values">
+                                <div class="value">
+                                    <span class="value-pm25">124</span
                                     ><span>PM 2.5</span>
                                 </div>
                                 <div class="value">
@@ -241,11 +294,12 @@
     <script type="module">
         import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
         const swiper = new Swiper(".swiper-container", {
-            effect: "slide",
+            effect: "fade",
             navigation: {
                 nextEl: ".swiper-next",
                 prevEl: ".swiper-prev",
             },
+            allowTouchMove: false,
         });
     </script>
 </html>
