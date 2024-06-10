@@ -57,6 +57,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            min-height: 176px;
         }
 
         .location-info h3 {
@@ -88,7 +89,7 @@
 
         .air-quality-info {
             background: #fff;
-            padding: 14px 16px;
+            padding: 12px 16px;
             font-size: 13px;
             display: flex;
             flex-direction: column;
@@ -99,7 +100,7 @@
 
         .bottom-info {
             background: #fff;
-            padding: 14px 8px;
+            padding: 12px 8px;
             border-radius: 0 0 1rem 1rem;
         }
 
@@ -107,7 +108,7 @@
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            margin-top: 16px;
+            margin-top: 10px;
         }
 
         .bottom-info a {
@@ -237,6 +238,10 @@
         @media screen and (max-height: 290px) {
             .bottom-info {
                 display: none;
+            }
+
+            .location-info {
+                min-height: unset;
             }
         }
 
